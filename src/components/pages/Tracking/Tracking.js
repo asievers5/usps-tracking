@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../Leaflet/Map';
+import Map from '../../Leaflet/Map';
 import styled from 'styled-components';
 
 const Ul = styled.ul`
