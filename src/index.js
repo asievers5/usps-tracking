@@ -11,7 +11,7 @@ import {
     BrowserRouter as Router,
     Switch,
 } from 'react-router-dom'
-import priceEstimator from './PriceEstimator/PriceEstimator';
+import priceEstimator from './PriceEstimator';
 import addressValidation from './AddressValidation/AddressValidation';
 import Home from './Home/Home';
 
@@ -21,12 +21,12 @@ console.log(store);
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <NavBar/>
+            <NavBar/><p>test</p>
             <Switch>
                 <Route path="/price-estimator" component={priceEstimator} />
                 <Route path="/address-validation" component={addressValidation} />
                 <Route path="/usps-tracking" component={App} />
-                <Route path="/" exact component={Home} />
+                <Route path="/" component={Home} />
             </Switch>
             <Footer />
         </Router>

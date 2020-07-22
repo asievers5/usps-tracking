@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import Tracking from '../Tracking/Tracking';
+import Tracking from '../Tracking/Tracking.js';
 import { fetchTrackingInfo } from '../redux/actions';
 
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Trackers from './Trackers/Trackers'
+import Trackers from './Tracking/Trackers'
 import Tracking from './Tracking/Tracking'
-import TrackingNumberInput from './TrackingNumberInput/TrackingNumberInput'
+import TrackingNumberInput from './Tracking/TrackingNumberInput'
 import * as actionTypes from './redux/actions'
 import { fetchTrackingInfo } from './redux/actions'
 
