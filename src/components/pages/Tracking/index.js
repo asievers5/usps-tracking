@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import Trackers from './Trackers'
 import Tracking from './Tracking'
 import TrackingNumberInput from './TrackingNumberInput'
-import * as actionTypes from '../../../redux/actions'
-import { fetchTrackingInfo } from '../../../redux/actions'
+import * as actionTypes from '../../../redux/Tracking/constants'
+import { fetchTrackingInfo } from '../../../redux/Tracking/actions'
 
 // 9361289706090838491252
 
@@ -34,6 +34,7 @@ const trackingPage = (props) => {
 }
 
 const mapStateToProps = state => {
+  console.log(`[state] ${Object.keys(state)}`);
   return {
     input : state.trackingReducers.textInput,
     trackingNumbers: state.trackingReducers.trackingNumbersList

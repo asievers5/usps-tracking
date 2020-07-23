@@ -1,10 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import {
-  Route, 
-  BrowserRouter as Router,
-  Switch,
-} from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import store from './redux/store'
 import AddressValidationPage from './components/pages/AddressValidation';
 import PriceEstimatorPage from './components/pages/PriceEstimator';
@@ -13,11 +9,11 @@ import HomePage from './components/pages/Home'
 import NavBar from './components/common/Nav/NavBar'
 import Footer from './components/common/Footer/Footer'
 
-const app = () => {
+const App = () => {
   return (
           <Provider store={store}>
             <Router>
-                <NavBar/><p>test</p>
+                <NavBar/><p>Test tracking number: 9361289706090838491252</p>
                 <Switch>
                     <Route path="/price-estimator" component={PriceEstimatorPage} />
                     <Route path="/address-validation" component={AddressValidationPage} />
@@ -30,4 +26,4 @@ const app = () => {
       )
 }
 
-export default app;
+export default App;

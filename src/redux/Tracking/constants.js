@@ -1,0 +1,3 @@
+export const INPUT_CHANGE = 'INPUT_CHANGE';
+export const TRACK_BUTTON_CLICK = 'TRACK_BUTTON_CLICK';
+export const ADD_TRACKER = 'ADD_TRACKER';
