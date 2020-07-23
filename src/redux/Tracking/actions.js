@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as actionTypes from './constants';
 
 export function fetchTrackingInfo(ID) {
     console.log('action dispatched')
@@ -25,6 +26,6 @@ export function fetchTrackingInfo(ID) {
                     return value.textContent;
                 })
                 
-                dispatch({type: ADD_TRACKER, payload: fullStatusList});
+                dispatch({type: actionTypes.ADD_TRACKER, payload: fullStatusList});
             })
 }
