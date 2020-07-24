@@ -1,22 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Trackers from './Trackers'
-import Tracking from './Tracking'
-import TrackingNumberInput from './TrackingNumberInput'
-import * as actionTypes from '../../../redux/Tracking/constants'
-import { fetchTrackingInfo } from '../../../redux/Tracking/actions'
+import DeliveryTrackerList from './DeliveryTrackerList';
+import DeliveryStatusList from './DeliveryStatusList';
+import TrackingNumberInput from './TrackingNumberInput';
+import * as actionTypes from '../../../redux/Tracking/constants';
+import { fetchTrackingInfo } from '../../../redux/Tracking/actions';
 
 // 9361289706090838491252
 
 const trackingPage = (props) => {
   
   let trackingComponents = null;
+
+  // Creates a Delivery Status List for each tracking number inputted
   if(props.trackingNumbers){
       trackingComponents = props.trackingNumbers.map((number, index) => {
-        return <Tracking tracking_ID={number} key={index} />
+        return <DeliveryStatusList tracking_ID={number} key={index} />
     })
   }
 
+  // Dispatches fetchTracking which makes USPS API call and updates 
   const inputButtonClicked = () => {
     props.fetchTracking(props.input);
   }
@@ -27,7 +30,7 @@ const trackingPage = (props) => {
         inputChangeHandler={props.onInputChanged} 
         value={props.input} 
         trackButtonClickHandler={inputButtonClicked} />
-      <Trackers />
+      <DeliveryTrackerList />
       {/*{trackingComponents}*/} {/* Put the logic inline because its small enough */}
     </div>
   );
@@ -38,7 +41,7 @@ const mapStateToProps = state => {
   return {
     input : state.trackingReducers.textInput,
     trackingNumbers: state.trackingReducers.trackingNumbersList
-  };
+  }
 }
 
 const mapDispatchToProps = dispatch => {

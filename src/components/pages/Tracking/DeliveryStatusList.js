@@ -13,7 +13,7 @@ const Ul = styled.ul`
     }
 `
 
-const tracking = (props) => {
+const statusList = (props) => {
 
     console.log(props.trackingInfo)
     let statusListElements = props.trackingInfo.map((statusLine, index) => {
@@ -39,4 +39,4 @@ const tracking = (props) => {
     );
 }
 
-export default tracking;
+export default statusList;
