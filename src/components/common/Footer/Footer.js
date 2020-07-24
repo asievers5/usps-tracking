@@ -9,7 +9,8 @@ const Footer = styled.div`
 const footer = () => {
     return (
         <Footer>
-            Footer
+            Test tracking number: 9361289706090838491252
+
         </Footer>
     );
 }

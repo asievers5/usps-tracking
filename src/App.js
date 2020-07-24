@@ -17,16 +17,16 @@ const App = () => {
   return (
           <Provider store={store}>
             <Router>
-                <NavBar/><p>Test tracking number: 9361289706090838491252</p>
                 <Switch>
                   <Suspense fallback={<div>Testing</div>}>
+                    <Route path="/" component={NavBar} />
                     <Route path="/price-estimator" component={PriceEstimatorPage} />
                     <Route path="/address-validation" component={AddressValidationPage} />
                     <Route path="/usps-tracking" component={TrackingPage} />
                     <Route path="/" exact component={HomePage} />
+                    <Route path="/" component={Footer} />
                   </Suspense>
                 </Switch>
-                <Footer />
             </Router>
         </Provider>
       )
