@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Ul = styled.ul`
@@ -24,6 +24,16 @@ const Li = styled.li`
     a:hover {
         background-color: #111;
     }
+
+    .active {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .active:hover {
+        background-color: #fff;
+        color: #000;
+    }
 `;
 
 const navBar = () => {
@@ -31,16 +41,16 @@ const navBar = () => {
         <nav>
             <Ul>
                 <Li>
-                    <Link to="/">Home</Link>
+                    <NavLink exact to="/">Home</NavLink>
                 </Li>
                 <Li>
-                    <Link to="/usps-tracking">Usps tracking</Link>
+                    <NavLink to="/usps-tracking">Usps tracking</NavLink>
                 </Li>
                 <Li>
-                    <Link to="/price-estimator">Price Estimator</Link>
+                    <NavLink to="/price-estimator">Price Estimator</NavLink>
                 </Li>
                 <Li>
-                    <Link to="/address-validation">Address Validation</Link>
+                    <NavLink to="/address-validation">Address Validation</NavLink>
                 </Li>
             </Ul>
         </nav>
