@@ -21,6 +21,7 @@ module.exports = {
         path: path.resolve(__dirname, "dist/"),
         publicPath: "/dist/",
         filename: "bundle.js",
+        chunkFilename: '[name].chunk.js',
     },
     devServer: {
         contentBase: path.join(__dirname, "public/"),
