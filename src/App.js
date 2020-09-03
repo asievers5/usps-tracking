@@ -17,9 +17,9 @@ const App = () => {
   return (
           <Provider store={store}>
             <Router>
+              <Route path="/" component={NavBar} />
                 <Switch>
                   <Suspense fallback={<div>Testing</div>}>
-                    <Route path="/" component={NavBar} />
                     <Route path="/price-estimator" component={PriceEstimatorPage} />
                     <Route path="/address-validation" component={AddressValidationPage} />
                     <Route path="/usps-tracking" component={TrackingPage} />

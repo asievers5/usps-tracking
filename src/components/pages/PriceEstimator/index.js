@@ -1,4 +1,6 @@
 import React from 'react'
+import SimpleTable from '../../common/SimpleTable';
+
 
 // Example api call:
 /*
@@ -21,6 +23,15 @@ https://secure.shippingapis.com/ShippingAPI.dll?API=RateV4&XML=<?xml version="1.
 </RateV4Request>`
 */
 const priceEstimator = (props) => {
+
+    let headings = ["Name", "ID", "Value"];
+    let rowData = [["Andrew", "s801539", "GSC"],
+                ["Deeda", "t987234", "PQE GSC"]];
+    let settings = {
+        bordersize: '2px',
+        bordercolor: 'gray'
+    }
+
     return (
         <div>
             <p>
@@ -39,6 +50,9 @@ const priceEstimator = (props) => {
             <input type="text" placeholder="Girth" />
             <input type="text" placeholder="Machinable" />
             </div>
+
+            <SimpleTable headings={headings} rows={rowData} settings={settings}/>
+
         </div>
     )
 }
