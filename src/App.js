@@ -25,9 +25,9 @@ const App = () => {
                 <Switch>
                   <Suspense fallback={<div>Testing</div>}>
                     <PrivateRoute path="/" exact component={HomePage} />
-                    <Route path="/price-estimator" component={PriceEstimatorPage} />
-                    <Route path="/address-validation" component={AddressValidationPage} />
-                    <Route path="/usps-tracking" component={TrackingPage} />
+                    <PrivateRoute path="/price-estimator" component={PriceEstimatorPage} />
+                    <PrivateRoute path="/address-validation" component={AddressValidationPage} />
+                    <PrivateRoute path="/usps-tracking" component={TrackingPage} />
                     <Route path="/login" component={LoginPage} />
                     <Route path="/signup" component={SignUpPage} />
                     <Route path="/" component={Footer} />

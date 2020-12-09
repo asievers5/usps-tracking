@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Logout from '../../common/Authentication/Logout';
+
 
 const Ul = styled.ul`
     list-style-type: none;
@@ -52,6 +54,7 @@ const navBar = () => {
                 <Li>
                     <NavLink to="/address-validation">Address Validation</NavLink>
                 </Li>
+                <Logout />
             </Ul>
         </nav>
     );
