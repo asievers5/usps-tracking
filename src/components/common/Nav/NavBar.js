@@ -27,12 +27,12 @@ const Li = styled.li`
 
     .active {
         background-color: #fff;
-        color: #000;
+        color: #300;
     }
 
     .active:hover {
         background-color: #fff;
-        color: #000;
+        color: #300;
     }
 `;
 

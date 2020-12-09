@@ -34,7 +34,9 @@ const SimpleTable = (props) => {
     return(
         <Table>
             <thead>
-                <tr>{headers}</tr>
+                <tr>
+                    {headers}
+                </tr>
             </thead>
             <tbody>
                 {rows}

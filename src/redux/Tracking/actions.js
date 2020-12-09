@@ -6,6 +6,7 @@ export function fetchTrackingInfo(ID) {
     if(ID[0].length === 22){
         url = `https://secure.shippingapis.com/ShippingAPI.dll?API=TrackV2&XML=<?xml version="1.0" encoding="UTF-8" ?><TrackRequest USERID="619SIEVE3833"><TrackID ID="${ID}">   </TrackID>   </TrackRequest>`
         url.replace(' ', '')
+        console.log(`[url] ${url}`);
     }
     else{
         alert(`Invalid tracking number length: ${ID.length}`);

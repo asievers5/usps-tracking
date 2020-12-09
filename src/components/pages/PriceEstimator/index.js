@@ -1,35 +1,18 @@
 import React from 'react'
 import SimpleTable from '../../common/SimpleTable';
-
-
-// Example api call:
-/*
-`
-https://secure.shippingapis.com/ShippingAPI.dll?API=RateV4&XML=<?xml version="1.0" encoding="UTF-8" ?><RateV4Request USERID="619SIEVE3833">
-<Revision>2</Revision>
-<Package ID="0">
-<Service>${service}</Service>
-<ZipOrigination>${zip_origin}</ZipOrigination>
-<ZipDestination>${zip_dest}</ZipDestination>
-<Pounds>${pounds}</Pounds>
-<Ounces>${ounces}</Ounces>
-<Container></Container>
-<Width></Width>
-<Length></Length>
-<Height></Height>
-<Girth></Girth>
-<Machinable></Machinable>
-</Package>
-</RateV4Request>`
-*/
+import Table from '../../common/Table/Table';
+import { defaultSchema as shippingItemSchema}  from '../../common/Table/TestSchema';
+import { data as shippingItemTestData} from '../../../../data'
 const priceEstimator = (props) => {
 
-    let headings = ["Name", "ID", "Value"];
-    let rowData = [["Andrew", "s801539", "GSC"],
-                ["Deeda", "t987234", "PQE GSC"]];
-    let settings = {
-        bordersize: '2px',
-        bordercolor: 'gray'
+    const getFormattedPrice = (item) => {
+        return <span>
+            {`$${item.price}`}
+        </span>
+    }
+
+    const customRenders = {
+        price: getFormattedPrice
     }
 
     return (
@@ -37,22 +20,8 @@ const priceEstimator = (props) => {
             <p>
                 Placeholder page for route '/price-estimator'
             </p>
-            <div>
 
-            <input type="text" placeholder="Zip Code - Origination" />
-            <input type="text" placeholder="Zip Code - Destination" />
-            <input type="text" placeholder="Pounds" />
-            <input type="text" placeholder="Ounces" />
-            <input type="text" placeholder="Container Type" />
-            <input type="text" placeholder="Width" />
-            <input type="text" placeholder="Length" />
-            <input type="text" placeholder="Height" />
-            <input type="text" placeholder="Girth" />
-            <input type="text" placeholder="Machinable" />
-            </div>
-
-            <SimpleTable headings={headings} rows={rowData} settings={settings}/>
-
+            <Table data={shippingItemTestData} schema={shippingItemSchema} customRenderers={customRenders} />
         </div>
     )
 }
