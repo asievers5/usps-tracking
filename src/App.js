@@ -11,8 +11,8 @@ const PriceEstimatorPage = lazy(() => import(/* webpackChunkName: "bundlePage" *
 const AddressValidationPage = lazy(() => import("./components/pages/AddressValidation"));
 const TrackingPage = lazy(() => import('./components/pages/Tracking'));
 const HomePage = lazy(() => import('./components/pages/Home'));
-const SignUpPage = lazy(() => import('./components/pages/SignUp'));
-const LoginPage = lazy(() => import('./components/pages/Login'));
+const SignUpPage = lazy(() => import('./components/common/Authentication/SignUp'));
+const LoginPage = lazy(() => import('./components/common/Authentication/Login'));
 
 
 
@@ -21,7 +21,7 @@ const App = () => {
         <AuthProvider>
           <Provider store={store}>
             <Router>
-              <Route path="/" component={NavBar} />
+              <PrivateRoute path="/" component={NavBar} />
                 <Switch>
                   <Suspense fallback={<div>Testing</div>}>
                     <PrivateRoute path="/" exact component={HomePage} />
