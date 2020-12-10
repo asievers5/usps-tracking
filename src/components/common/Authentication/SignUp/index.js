@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../../../../firebase/base";
+import styled from 'styled-components';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -18,20 +19,55 @@ const SignUp = ({ history }) => {
 
   return (
     <div>
-      <h1>Sign up</h1>
+      <Header2>Sign up</Header2>
       <form onSubmit={handleSignUp}>
-        <label>
-          Email
+        <InfoBox>
           <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
+        </InfoBox>
+        <InfoBox>
           <input name="password" type="password" placeholder="Password" />
-        </label>
-        <button type="submit">Sign Up</button>
+        </InfoBox>
+        <StyledButton type="submit">Sign Up for USPS Tracking</StyledButton>
       </form>
     </div>
   );
 };
+
+
+const Header2 = styled.h2`
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+`;
+
+const InfoBox = styled.label`
+  position: relative;
+
+  input {
+    width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 2px solid #4CAF50;
+  outline: none;
+  background: transparent;
+  }
+`;
+
+const StyledButton = styled.button`
+  background-color: inherit;
+  color: white;
+  border: 2px solid #4CAF50; /* Green */
+  padding: 10px;
+  transition-duration: 0.2s;
+
+  :hover {
+    color: black;
+    background-color: #4CAF50;
+  }
+`;
 
 export default withRouter(SignUp);

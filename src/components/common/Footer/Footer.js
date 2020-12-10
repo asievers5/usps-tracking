@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Footer = styled.div`
-    position: sticky;
+    position: absolute;
     bottom: 0;
 `;
 

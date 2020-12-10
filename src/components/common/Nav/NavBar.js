@@ -34,9 +34,6 @@ const navBar = () => {
                 </div>
                 <LinksDiv className={state.displayStatus}>
                     <Li>
-                    <NavLink exact to="/">Home</NavLink>
-                    </Li>
-                    <Li>
                         <NavLink to="/usps-tracking">Usps tracking</NavLink>
                     </Li>
                     <Li>
