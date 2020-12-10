@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import app from "../../../../firebase/base";
 import styled from 'styled-components';
 
-const SignUp = ({ history }) => {
+const SignUp = (props, { history }) => {
   const handleSignUp = useCallback(async event => {
     event.preventDefault(); //dont reload page after
     const { email, password } = event.target.elements;
@@ -19,7 +19,7 @@ const SignUp = ({ history }) => {
 
   return (
     <div>
-      <Header2>Sign up</Header2>
+      <Header2>Sign Up for USPS Tracking</Header2>
       <form onSubmit={handleSignUp}>
         <InfoBox>
           <input name="email" type="email" placeholder="Email" />
@@ -27,7 +27,9 @@ const SignUp = ({ history }) => {
         <InfoBox>
           <input name="password" type="password" placeholder="Password" />
         </InfoBox>
-        <StyledButton type="submit">Sign Up for USPS Tracking</StyledButton>
+        <ButtonDiv>
+          <StyledButton type="submit">Sign Up </StyledButton>
+        </ButtonDiv>
       </form>
     </div>
   );
@@ -58,16 +60,25 @@ const InfoBox = styled.label`
 `;
 
 const StyledButton = styled.button`
-  background-color: inherit;
+  background-color: #4CAF50;
   color: white;
   border: 2px solid #4CAF50; /* Green */
   padding: 10px;
   transition-duration: 0.2s;
+  border-radius: 2px;
 
   :hover {
-    color: black;
-    background-color: #4CAF50;
+    background-color: #7bdb7f;
+    cursor: pointer;
+
   }
+`;
+
+const ButtonDiv = styled.div`
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default withRouter(SignUp);

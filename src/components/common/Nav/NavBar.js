@@ -51,6 +51,7 @@ const navBar = () => {
 
 const LinksDiv = styled.div.attrs(props => {})`
     display: flex;
+    width: 100%;
     @media (max-width: 568px) {
         flex-direction: column;
         &.hidden {
@@ -62,6 +63,7 @@ const LinksDiv = styled.div.attrs(props => {})`
 
 const Nav = styled.nav`
     position: sticky;
+    width: 100%;
     top: 0px;
     z-index: 999999999;
 `;
@@ -71,7 +73,7 @@ const Ul = styled.ul`
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #141e30;
     
     @media (max-width: 568px) {
         flex-direction: column;
@@ -103,6 +105,5 @@ const Li = styled.li`
         color: #300;
     }
     `;
-
 
 export default navBar;

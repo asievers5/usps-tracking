@@ -33,13 +33,15 @@ const Login = ({ history }) => {
     <div>
       <Header2>Log in to USPS Tracker</Header2>
       <form onSubmit={handleLogin}>
-        <InfoBox>
+        <InfoBox1>
           <input name="email" type="email" placeholder="Email" />
-        </InfoBox>
-        <InfoBox>
+        </InfoBox1>
+        <InfoBox2>
           <input name="password" type="password" placeholder="Password" />
-        </InfoBox>
-        <StyledButton type="submit">Submit</StyledButton>
+        </InfoBox2>
+        <ButtonDiv>
+          <StyledButton type="submit">Log in</StyledButton>
+        </ButtonDiv>
       </form>
     </div>
   );
@@ -52,7 +54,21 @@ const Header2 = styled.h2`
   text-align: center;
 `;
 
-const InfoBox = styled.label`
+const InfoBox1 = styled.label`
+  position: relative;
+  input {
+    width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 2px solid #4CAF50;
+  outline: none;
+  background: transparent;
+}`
+
+const InfoBox2 = styled.label`
   position: relative;
   input {
     width: 100%;
@@ -67,16 +83,24 @@ const InfoBox = styled.label`
 }`
 
 const StyledButton = styled.button`
-  background-color: inherit;
+  background-color: #4CAF50;
   color: white;
   border: 2px solid #4CAF50; /* Green */
   padding: 10px;
   transition-duration: 0.2s;
+  border-radius: 2px;
 
   :hover {
-    color: black;
-    background-color: #4CAF50;
+    background-color: #7bdb7f;
+    cursor: pointer;
   }
+`;
+
+const ButtonDiv = styled.div`
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
 `;
 
 /*
