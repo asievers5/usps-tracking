@@ -39,9 +39,8 @@ const trackingPage = (props) => {
 
 const Container = styled.div`
   padding: 20%;
+  border: 2px solid black;
 `;
-
-
 
 const mapStateToProps = state => {
   console.log(`[state] ${Object.keys(state)}`);
