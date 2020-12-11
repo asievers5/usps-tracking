@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import Logout from '../../common/Authentication/Logout';
+import Logout from '../../Authentication/Logout';
 import Hamburger from './Hamburger';
 
-const navBar = () => {
+const navBar = (props) => {
 
     let initialState = {
         "displayStatus" : ""
@@ -42,7 +42,9 @@ const navBar = () => {
                     <Li>
                         <NavLink to="/address-validation">Address Validation</NavLink>
                     </Li>
-                    <Logout />
+                    <LogOutStyling>
+                        <Logout />
+                    </LogOutStyling>
                 </LinksDiv>
             </Ul>
         </Nav>
@@ -66,14 +68,14 @@ const Nav = styled.nav`
     width: 100%;
     top: 0px;
     z-index: 999999999;
-`;
+    `;
 
 const Ul = styled.ul`
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #141e30;
+    background-color: #090e17;
     
     @media (max-width: 568px) {
         flex-direction: column;
@@ -89,21 +91,31 @@ const Li = styled.li`
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+        /*border: 1px solid #141e30;*/
     }
     
     a:hover {
-        background-color: #111;
+        background-color: #404856;
     }
     
     .active {
-        background-color: #fff;
-        color: #300;
+        background-color: #404856;
+        color: #FFF;
+        border: ;
     }
-    
-    .active:hover {
-        background-color: #fff;
-        color: #300;
-    }
+
     `;
+
+const LogOutStyling = styled.div`
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    
+    button {
+        background-color: inherit;
+        color: white;
+        border-style: none;
+    }
+`;
 
 export default navBar;

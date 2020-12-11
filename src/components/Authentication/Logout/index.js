@@ -1,5 +1,6 @@
 import React from 'react';
-import app from '../../../../firebase/base'
+import app from '../../../firebase/base'
+import styled from 'styled-components'
 
 const Logout = (props) => {
 
@@ -12,9 +13,16 @@ const Logout = (props) => {
     }
 
     return (
-        <button onClick={handleLogout}>Sign out</button>
+        <LogoutButton onClick={handleLogout}>Sign out</LogoutButton>
     )
 }
+
+const LogoutButton = styled.button`
+  :hover {
+          background-color: #111;
+          border: 1px solid #141e30;
+      }
+`;
 
 export default Logout;
 

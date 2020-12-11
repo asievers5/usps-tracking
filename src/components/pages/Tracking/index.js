@@ -5,6 +5,7 @@ import DeliveryStatusList from './DeliveryStatusList';
 import TrackingNumberInput from './TrackingNumberInput';
 import * as actionTypes from '../../../redux/Tracking/constants';
 import { fetchTrackingInfo } from '../../../redux/Tracking/actions';
+import styled from 'styled-components';
 
 // 9361289706090838491252
 
@@ -25,16 +26,22 @@ const trackingPage = (props) => {
   }
  
   return (
-    <div>   
+    <Container>   
       <TrackingNumberInput 
         inputChangeHandler={props.onInputChanged} 
         value={props.input} 
         trackButtonClickHandler={inputButtonClicked} />
       <DeliveryTrackerList />
       {/*{trackingComponents}*/} {/* Put the logic inline because its small enough */}
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  padding: 20%;
+`;
+
+
 
 const mapStateToProps = state => {
   console.log(`[state] ${Object.keys(state)}`);

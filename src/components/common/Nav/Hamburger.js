@@ -9,17 +9,6 @@ const Hamburger = () => (
         </HamburgerIcon>
 );
 
-    /*
-    const Span = styled.span`
-    display: block;
-    margin:4px;
-    height: 9px;
-    width:60px;
-    background: #d3531a;
-    border-radius: 9px;
-    `;
-    */
-
     const Span = styled.span`
         width: 35px;
         height: 5px;

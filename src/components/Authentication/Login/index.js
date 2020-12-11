@@ -1,9 +1,9 @@
 import React, { useCallback, useContext } from "react";
 import { connect } from 'react-redux';
-import * as actionTypes from '../../../../redux/UserAuth/constants';
+import * as actionTypes from '../../../redux/UserAuth/constants';
 import { withRouter, Redirect } from "react-router";
-import app from '../../../../firebase/base';
-import { AuthContext } from "../../../../firebase/Auth";
+import app from '../../../firebase/base';
+import { AuthContext } from "../../../firebase/Auth";
 import styled from 'styled-components';
 
 const Login = ({ history }) => {
@@ -33,12 +33,12 @@ const Login = ({ history }) => {
     <div>
       <Header2>Log in to USPS Tracker</Header2>
       <form onSubmit={handleLogin}>
-        <InfoBox1>
+        <InfoBox>
           <input name="email" type="email" placeholder="Email" />
-        </InfoBox1>
-        <InfoBox2>
+        </InfoBox>
+        <InfoBox>
           <input name="password" type="password" placeholder="Password" />
-        </InfoBox2>
+        </InfoBox>
         <ButtonDiv>
           <StyledButton type="submit">Log in</StyledButton>
         </ButtonDiv>
@@ -54,21 +54,7 @@ const Header2 = styled.h2`
   text-align: center;
 `;
 
-const InfoBox1 = styled.label`
-  position: relative;
-  input {
-    width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 2px solid #4CAF50;
-  outline: none;
-  background: transparent;
-}`
-
-const InfoBox2 = styled.label`
+const InfoBox = styled.label`
   position: relative;
   input {
     width: 100%;
@@ -92,7 +78,11 @@ const StyledButton = styled.button`
 
   :hover {
     background-color: #7bdb7f;
-    cursor: pointer;
+    font-weight: bold; 
+    /*cursor: pointer;
+    box-shadow: 0 0 3px #4CAF50, 0 0 6px #4CAF50, 0 0 12px #005;*/
+    transition: box-shadow .2s;
+    transition: color .2s;
   }
 `;
 

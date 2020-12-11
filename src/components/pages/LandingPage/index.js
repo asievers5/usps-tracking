@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
-import Login from '../../common/Authentication/Login'
-import SignUp from '../../common/Authentication/SignUp'
+import Login from '../../Authentication/Login'
+import SignUp from '../../Authentication/SignUp'
 
 const LandingPage = (props) => {
 
