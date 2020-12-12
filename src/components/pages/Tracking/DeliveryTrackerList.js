@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import DeliveryStatusList from './DeliveryStatusList.js';
+import DeliveryStatusList from './SingleDeliveryStatus.js';
 
 const DeliveryTrackerList = (props) => {
 

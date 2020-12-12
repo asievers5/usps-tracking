@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DeliveryTrackerList from './DeliveryTrackerList';
-import DeliveryStatusList from './DeliveryStatusList';
-import TrackingNumberInput from './TrackingNumberInput';
+import AllDeliveryTrackers from './DeliveryTrackerList';
+import DeliveryStatusList from './SingleDeliveryStatus';
+import InputTracking from './InputTracking';
 import * as actionTypes from '../../../redux/Tracking/constants';
 import { fetchTrackingInfo } from '../../../redux/Tracking/actions';
 import styled from 'styled-components';
-
+import * as CONSTANTS from '../../Constants/Constants'
 // 9361289706090838491252
 
 const trackingPage = (props) => {
@@ -27,19 +27,28 @@ const trackingPage = (props) => {
  
   return (
     <Container>   
-      <TrackingNumberInput 
+      <InputTracking 
         inputChangeHandler={props.onInputChanged} 
         value={props.input} 
         trackButtonClickHandler={inputButtonClicked} />
-      <DeliveryTrackerList />
+      <AllDeliveryTrackers />
       {/*{trackingComponents}*/} {/* Put the logic inline because its small enough */}
     </Container>
   );
 }
 
 const Container = styled.div`
-  padding: 20%;
   border: 2px solid black;
+  padding: 15%;
+  background-color: orange;
+
+  @media (max-width: 1200px) {
+    padding: 10%;
+  }
+
+  @media (max-width: ${CONSTANTS.BP_MOBILE} ) {
+    padding: 0;
+  }
 `;
 
 const mapStateToProps = state => {

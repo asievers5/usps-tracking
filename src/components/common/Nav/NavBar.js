@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Logout from '../../Authentication/Logout';
 import Hamburger from './Hamburger';
+import * as CONSTANTS from '../../Constants/Constants'
 
 const navBar = (props) => {
 
@@ -54,7 +55,7 @@ const navBar = (props) => {
 const LinksDiv = styled.div.attrs(props => {})`
     display: flex;
     width: 100%;
-    @media (max-width: 568px) {
+    @media (max-width: ${CONSTANTS.BP_MOBILE}) {
         flex-direction: column;
         &.hidden {
             display: none;
@@ -77,7 +78,7 @@ const Ul = styled.ul`
     overflow: hidden;
     background-color: #090e17;
     
-    @media (max-width: 568px) {
+    @media (max-width: ${CONSTANTS.BP_MOBILE}) {
         flex-direction: column;
     }
     `;

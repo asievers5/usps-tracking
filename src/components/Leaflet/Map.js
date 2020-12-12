@@ -11,9 +11,9 @@ const Map = (props) => {
             zoom={6}
             maxZoom={10}
             attributionControl={true}
-            doubleClickZoom={true}
-            scrollWheelZoom={true}
-            dragging={true}
+            doubleClickZoom={false}
+            scrollWheelZoom={false}
+            dragging={false}
             animate={true}
             easeLinearity={0.35}
             >
