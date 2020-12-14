@@ -35,9 +35,6 @@ const navBar = (props) => {
                 </div>
                 <LinksDiv className={state.displayStatus}>
                     <Li>
-                        <a>USPS Tracker</a>
-                    </Li>
-                    <Li>
                         <NavLink to="/usps-tracking">USPS Tracking</NavLink>
                     </Li>
                     <Li>
