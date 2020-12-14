@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BP_MOBILE } from '../../Constants/Constants'
 
 const Hamburger = () => (
         <HamburgerIcon>
@@ -19,10 +20,12 @@ const Hamburger = () => (
     const HamburgerIcon = styled.div`
         display: none;
 
-        @media (max-width: 568px) {
+        @media (max-width: ${BP_MOBILE}) {
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-top: 7px;
+            padding-bottom: 7px;
         }
     `;
 

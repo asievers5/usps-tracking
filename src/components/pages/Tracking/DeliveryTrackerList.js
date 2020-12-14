@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import DeliveryStatusList from './SingleDeliveryStatus.js';
+import SingleDeliveryStatus from './SingleDeliveryStatus.js';
+import styled from 'styled-components';
 
 const DeliveryTrackerList = (props) => {
 
@@ -9,15 +10,20 @@ const DeliveryTrackerList = (props) => {
     // For each USPS tracking
     if(props.trackers){
         deliveryTrackers = props.trackers.map((trackingInfo, index) => {
-          return <DeliveryStatusList trackingInfo={trackingInfo} key={index} />
+          return <SingleDeliveryStatus trackingInfo={trackingInfo} key={index} />
       })
     }
     return(
-        <div>
+        <Div>
             {deliveryTrackers}
-        </div>
+        </Div>
     );
 }
+
+const Div = styled.div`
+    height: 100%;
+`;
+
 
 const mapStateToProps = state => {
     return {

@@ -34,7 +34,7 @@ const Login = ({ history }) => {
       <Header2>Log in to USPS Tracker</Header2>
       <form onSubmit={handleLogin}>
         <InfoBox>
-          <input name="email" type="email" placeholder="Email" />
+          <Input name="email" type="email" placeholder="Email" />
         </InfoBox>
         <InfoBox>
           <input name="password" type="password" placeholder="Password" />
@@ -67,6 +67,9 @@ const InfoBox = styled.label`
   outline: none;
   background: transparent;
 }`
+
+const Input = styled.input`
+`;
 
 const StyledButton = styled.button`
   background-color: #4CAF50;

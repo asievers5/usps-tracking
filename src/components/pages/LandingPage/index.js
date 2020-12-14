@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import Login from '../../Authentication/Login'
 import SignUp from '../../Authentication/SignUp'
+import { COL_DARKBLUE, COL_LIGHTBLUE } from '../../Constants/Constants';
 
 const LandingPage = (props) => {
 
@@ -28,22 +29,22 @@ const LandingPage = (props) => {
 
     return(
         <Container>
-            <Modal>
+            <Card>
                 {loginsignup}
                 <StyledButton type="button" onClick={navigateToSignUp}>{state.hasAccount ? "Dont have an account? Sign up" : "Already have an account? Log in"}</StyledButton>
-            </Modal>
+            </Card>
         </Container>
     )
 }
 
 const Container = styled.div`
     height: 100%;
-    background: #090e17;
+    background: ${COL_DARKBLUE};
     `;
 
-const Modal = styled.div`
+const Card = styled.div`
     position: absolute;
-    background: #141e30;
+    background: ${COL_LIGHTBLUE};
     top: 50%;
     left: 50%;
     width: 400px;

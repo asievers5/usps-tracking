@@ -19,6 +19,8 @@ const priceEstimator = (props) => {
         <div>
             <p>
                 Placeholder page for route '/price-estimator'
+                <br />
+                Example custom table used with customRenderer for price formatting.
             </p>
 
             <Table data={shippingItemTestData} schema={shippingItemSchema} customRenderers={customRenders} />

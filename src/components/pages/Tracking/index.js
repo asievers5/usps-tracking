@@ -7,7 +7,6 @@ import * as actionTypes from '../../../redux/Tracking/constants';
 import { fetchTrackingInfo } from '../../../redux/Tracking/actions';
 import styled from 'styled-components';
 import * as CONSTANTS from '../../Constants/Constants'
-// 9361289706090838491252
 
 const trackingPage = (props) => {
   
@@ -26,30 +25,49 @@ const trackingPage = (props) => {
   }
  
   return (
-    <Container>   
-      <InputTracking 
-        inputChangeHandler={props.onInputChanged} 
-        value={props.input} 
-        trackButtonClickHandler={inputButtonClicked} />
-      <AllDeliveryTrackers />
-      {/*{trackingComponents}*/} {/* Put the logic inline because its small enough */}
+    <Container id="CONTAINER">
+      <Header>Test txt</Header>
+        <InputTrackingStyled>
+          <InputTracking 
+            inputChangeHandler={props.onInputChanged} 
+            value={props.input} 
+            trackButtonClickHandler={inputButtonClicked} />
+        </InputTrackingStyled>
+        <AllDeliveryTrackers />
+        {/*{trackingComponents}*/} {/* Put the logic inline because its small enough */}
     </Container>
   );
 }
 
 const Container = styled.div`
-  border: 2px solid black;
-  padding: 15%;
-  background-color: orange;
+
+/*
+display: flex;
+flex-direction: column;
+*/
+
 
   @media (max-width: 1200px) {
-    padding: 10%;
+    padding: 0%;
   }
-
+  
   @media (max-width: ${CONSTANTS.BP_MOBILE} ) {
     padding: 0;
   }
 `;
+
+const Header =  styled.div`
+  color: white;
+  align-self: center;
+  padding-bottom: 5%;
+
+  font-size: 4rem;
+`
+
+const InputTrackingStyled = styled.div`
+  background-color: ${CONSTANTS.COL_DARKBLUE};
+`;
+
 
 const mapStateToProps = state => {
   console.log(`[state] ${Object.keys(state)}`);
@@ -66,5 +84,9 @@ const mapDispatchToProps = dispatch => {
     fetchTracking: (id) => dispatch(fetchTrackingInfo(id)),
   }
 }
+
+const WhiteTextPar = styled.p`
+  color: white;
+`;
 
 export default connect(mapStateToProps, mapDispatchToProps)(trackingPage);

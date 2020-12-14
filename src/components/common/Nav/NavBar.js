@@ -8,7 +8,7 @@ import * as CONSTANTS from '../../Constants/Constants'
 const navBar = (props) => {
 
     let initialState = {
-        "displayStatus" : ""
+        "displayStatus" : "hidden"
     }
 
     const [state, setstate] = useState(initialState);
@@ -35,7 +35,10 @@ const navBar = (props) => {
                 </div>
                 <LinksDiv className={state.displayStatus}>
                     <Li>
-                        <NavLink to="/usps-tracking">Usps tracking</NavLink>
+                        <a>USPS Tracker</a>
+                    </Li>
+                    <Li>
+                        <NavLink to="/usps-tracking">USPS Tracking</NavLink>
                     </Li>
                     <Li>
                         <NavLink to="/price-estimator">Price Estimator</NavLink>
@@ -72,11 +75,14 @@ const Nav = styled.nav`
     `;
 
 const Ul = styled.ul`
+    display: flex;
+    justify-content: row-reverse;
     list-style-type: none;
     margin: 0;
+    border-bottom: 2px solid ${CONSTANTS.COL_GREEN};
     padding: 0;
     overflow: hidden;
-    background-color: #090e17;
+    background-color: ${CONSTANTS.COL_LIGHTBLUE};       /*#090e17;*/
     
     @media (max-width: ${CONSTANTS.BP_MOBILE}) {
         flex-direction: column;
@@ -84,8 +90,6 @@ const Ul = styled.ul`
     `;
 
 const Li = styled.li`
-    float: left;
-    
     a {
         display: block;
         color: white;
