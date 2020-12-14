@@ -26,7 +26,8 @@ const trackingPage = (props) => {
  
   return (
     <Container id="CONTAINER">
-      <Header>Test txt</Header>
+      <Header>Track a delivery</Header>
+          <DescriptionText>Enter a USPS tracking number to begin tracking.</DescriptionText>
         <InputTrackingStyled>
           <InputTracking 
             inputChangeHandler={props.onInputChanged} 
@@ -60,14 +61,19 @@ const Header =  styled.div`
   color: white;
   align-self: center;
   padding-bottom: 5%;
-
+  text-decoration: underline;
+  text-decoration-color: ${CONSTANTS.COL_GREEN};
   font-size: 4rem;
+  text-decoration-skip-ink: none;
 `
 
 const InputTrackingStyled = styled.div`
   background-color: ${CONSTANTS.COL_DARKBLUE};
 `;
 
+const DescriptionText = styled.p`
+  font-weight: 600;
+`;
 
 const mapStateToProps = state => {
   console.log(`[state] ${Object.keys(state)}`);
