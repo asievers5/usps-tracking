@@ -23,7 +23,7 @@ const App = () => {
             <Router>
               <PrivateRoute path="/" component={NavBar} />
                 <Switch>
-                  <Suspense fallback={NavBar}>
+                  <Suspense fallback={<div>testing</div>}>
                     <Route path="/landingpage" component={LandingPage} />
                       <PrivateRoute path="/" exact>
                         <AppStyling children={<TrackingPage />} />

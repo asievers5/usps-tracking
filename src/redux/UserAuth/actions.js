@@ -1,7 +1,9 @@
 import axios from 'axios';
 import * as actionTypes from './constants';
+import app from '../../firebase/base'
+import { useHistory } from "react-router-dom";
 
-
+/*
 export const handleSignUp = useCallback(async event => {
     event.preventDefault(); //dont reload page after
     const { email, password } = event.target.elements;
@@ -14,19 +16,18 @@ export const handleSignUp = useCallback(async event => {
         alert(error);
     }
     }, [history]);
+*/
 
-export const handleLogin = useCallback(
-    async event => {
+export const handleLogin = (event) => {
+    let { email, password } = event.target.elements;
+    console.log("THIS HAPPENED");
     event.preventDefault();
-    const { email, password } = event.target.elements;
     try {
-        await app
+        console.log(`${email.value} ${password.value}`)
+        app
         .auth()
         .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
     } catch (error) {
-        alert(error);
+        alert(error + "test");
     }
-    },
-    [history]
-);
+} 

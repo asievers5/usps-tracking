@@ -26,7 +26,7 @@ const trackingPage = (props) => {
  
   return (
     <Container id="CONTAINER">
-      <Header>Track a delivery</Header>
+      <Header>Track a Delivery</Header>
           <DescriptionText>Enter a USPS tracking number to begin tracking.</DescriptionText>
         <InputTrackingStyled>
           <InputTracking 
@@ -61,7 +61,7 @@ const Header =  styled.div`
   color: white;
   align-self: center;
   padding-bottom: 5%;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   text-decoration-color: ${CONSTANTS.COL_GREEN};
   font-size: 4rem;
   text-decoration-skip-ink: none;

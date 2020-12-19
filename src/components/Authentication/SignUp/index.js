@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import app from "../../../firebase/base";
 import styled from 'styled-components';
 
-const SignUp = (props, { history }) => {
+const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
     event.preventDefault(); //dont reload page after
     const { email, password } = event.target.elements;
