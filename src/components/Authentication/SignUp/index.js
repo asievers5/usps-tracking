@@ -1,21 +1,11 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
+import { connect } from 'react-redux';
 import app from "../../../firebase/base";
 import styled from 'styled-components';
+import { handleSignUp } from "../../../redux/UserAuth/actions";
 
-const SignUp = ({ history }) => {
-  const handleSignUp = useCallback(async event => {
-    event.preventDefault(); //dont reload page after
-    const { email, password } = event.target.elements;
-    try {
-      await app
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
-      history.push("/");
-    } catch (error) {
-      alert(error);
-    }
-  }, [history]);
+const SignUp = () => {
 
   return (
     <div>
@@ -81,4 +71,10 @@ const ButtonDiv = styled.div`
   flex-direction: column;
 `;
 
-export default withRouter(SignUp);
+const mapDispatchToProps = () => {
+  return {
+    handleSignUp: () => dispatch(handleSignUp())
+  }
+}
+
+export default withRouter(connect(mapDispatchToProps)(SignUp));

@@ -92,7 +92,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = () => {
   return {
-    handleLogin: (event, history) => dispatch(handleLogin(event, history))
+    handleLogin: (event) => dispatch(handleLogin(event))
   }
 }
 
