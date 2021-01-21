@@ -1,11 +1,21 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
-import { connect } from 'react-redux';
 import app from "../../../firebase/base";
 import styled from 'styled-components';
-import { handleSignUp } from "../../../redux/UserAuth/actions";
 
-const SignUp = () => {
+const SignUp = ({ history }) => {
+  const handleSignUp = useCallback(async event => {
+    event.preventDefault(); //dont reload page after
+    const { email, password } = event.target.elements;
+    try {
+      await app
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value);
+      history.push("/");
+    } catch (error) {
+      alert(error);
+    }
+  }, [history]);
 
   return (
     <div>
@@ -25,7 +35,6 @@ const SignUp = () => {
   );
 };
 
-
 const Header2 = styled.h2`
   margin: 0 0 30px;
   padding: 0;
@@ -38,14 +47,14 @@ const InfoBox = styled.label`
 
   input {
     width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 2px solid #4CAF50;
-  outline: none;
-  background: transparent;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #4CAF50;
+    outline: none;
+    background: transparent;
   }
 `;
 
@@ -71,10 +80,4 @@ const ButtonDiv = styled.div`
   flex-direction: column;
 `;
 
-const mapDispatchToProps = () => {
-  return {
-    handleSignUp: () => dispatch(handleSignUp())
-  }
-}
-
-export default withRouter(connect(mapDispatchToProps)(SignUp));
+export default withRouter(SignUp);

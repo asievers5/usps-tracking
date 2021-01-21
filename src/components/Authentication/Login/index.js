@@ -1,14 +1,26 @@
 import React, { useCallback, useContext } from "react";
-import { connect, compose } from 'react-redux';
-import * as actionTypes from '../../../redux/UserAuth/constants';
 import { withRouter, Redirect } from "react-router";
 import app from '../../../firebase/base';
 import { AuthContext } from "../../../firebase/Auth";
 import styled from 'styled-components';
-import { handleLogin } from "../../../redux/UserAuth/actions";
 
-const Login = () => {
-  
+const Login = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await app
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
+
   const { currentUser } = useContext(AuthContext);
 
   console.log(`[AuthContext.currentUser] ${currentUser}`)
@@ -85,15 +97,4 @@ const ButtonDiv = styled.div`
   flex-direction: column;
 `;
 
-
-const mapStateToProps = state => {
-  return({});
-}
-
-const mapDispatchToProps = () => {
-  return {
-    handleLogin: (event) => dispatch(handleLogin(event))
-  }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default withRouter(Login);
